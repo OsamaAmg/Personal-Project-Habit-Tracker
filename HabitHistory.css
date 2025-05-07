@@ -1,0 +1,139 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #F1F1F1;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.habit-history {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  min-height: fit-content;
+  border-radius: 20px;
+  margin-top: 40px;
+  padding-bottom: 100px;
+}
+
+.habit-history-head {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.habit-history-head h3 {
+ margin: 10px 0px 0px 25px;
+ color: #272222;
+ font-size: 20px;
+ font-weight: 400;
+ font-style: italic;
+}
+
+.head-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  margin: 10px 10px;
+}
+
+.head-box button{
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  margin: 4px 4px;
+  cursor: pointer;
+}
+
+.line {
+  background-color: #33FF6D;
+  width: 1px;
+  height: 35px;
+}
+
+.head-box img {
+  height: 40px;
+}
+
+.base-line {
+  background-color: #33FF6D;
+  height: 1px;
+  width: 95%;
+  margin: 0px auto;
+}
+
+
+.calendar {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.month-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 33.3333%;
+  height: fit-content;
+  margin-bottom: 20px;
+
+}
+
+.month-box p {
+  font-size: 18px;
+  margin: 15px 0px;
+}
+
+
+.month-days {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(5%, 1fr));
+  gap: 3%;
+  width: 80%;
+  margin-bottom: 40px;
+}
+
+
+.month-days div {
+  aspect-ratio: 1 / 1;
+  background-color: rgb(219, 255, 219);
+  border-radius: 4px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  border: 1px lightgreen solid;
+
+}
+
+
+/*
+
+.missed {
+  border: 1px solid rgb(255, 123, 123) !important; 
+  background-color: rgb(252, 215, 215) !important;
+
+}
+
+.not-missed {
+  border: 1px solid rgb(87, 143, 87) !important; 
+  background-color: rgb(168, 255, 168) !important;
+  
+}
+*/
