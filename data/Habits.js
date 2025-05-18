@@ -1,36 +1,21 @@
-export const habits = [
-  {
-    id: crypto.randomUUID(),        
-    name: 'Read',                
-    createdAt: '2025-05-07',      
-    history: {
-      '2025-05-07': true,          
-      '2025-05-08': false
+import { renderHabitsLists } from "../components/renderHabits.js";
 
-    },
-    currentStreak: 2,              
-    longestStreak: 5             
-  },
+const storedHabits = localStorage.getItem('habits');
 
-  {
-    id: crypto.randomUUID(),        
-    name: 'Gym',                
-    createdAt: '2025-05-07',      
-    history: {
-      '2025-05-07': true,          
-      '2025-05-08': true,
+export let habits = storedHabits 
+    ? JSON.parse(storedHabits) 
+    : [];
 
-    },
-    currentStreak: 2,              
-    longestStreak: 5             
-  }
-  
-];
-
-let name = "walk";
+function saveHabits(){
+  localStorage.setItem('habits', JSON.stringify(habits));
+}
 
 
-export function addHabit(name) {
+if(!storedHabits){
+  saveHabits();
+}
+
+export function addHabits(name) {
   const today = new Date().toISOString().split('T')[0];
   const newHabit = {
     id: crypto.randomUUID(),
@@ -44,7 +29,7 @@ export function addHabit(name) {
   };
 
   habits.push(newHabit);
+  saveHabits();
 }
 
-addHabit(name);
-console.log(habits);
+
