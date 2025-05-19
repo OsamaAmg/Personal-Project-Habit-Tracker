@@ -40,6 +40,15 @@ export function deleteHabit(id) {
     saveHabits();
     renderHabitsLists(habits);
   }
+};
+
+
+export function editHabitName(id, newName) {
+  const habit = habits.find(h => h.id === id);
+  if (!habit) return;
+
+  habit.name = newName;
+  saveHabits();
 }
 
 

@@ -1,4 +1,4 @@
-import { habits, addHabits, deleteHabit} from "../data/Habits.js";
+import { habits, addHabits, deleteHabit, editHabitName} from "../data/Habits.js";
 import { renderHabitsLists } from "../components/renderHabits.js";
 
 
@@ -7,18 +7,34 @@ const addHabitBtn = document.querySelector('.add-habit-button');
 const modal = document.getElementById('habit-modal');
 const habitInput = document.getElementById('habit-name');
 const submitHabitBtn = document.getElementById('submit-habit');
+const modalTitle = document.getElementById('modal-title');
+
+let isEditing = false;
+let editingHabitId = null;
+
 
 
 addHabitBtn.addEventListener('click', () => {
+  isEditing = false;
+  editingHabitId = null;
+
+  modalTitle.textContent = "Add New Habit";
+  habitInput.value = "";
+
   modal.classList.remove('hidden');
   habitInput.focus();
 });
 
+
 submitHabitBtn.addEventListener('click', () => {
   const name = habitInput.value.trim();
 
-  if(name){
-    addHabits(name);
+  if (name) {
+    if (isEditing) {
+      editHabitName(editingHabitId, name);
+    } else {
+      addHabits(name);
+    }
     modal.classList.add('fade-out');
   } else {
     modal.classList.add('fade-out');
@@ -28,10 +44,16 @@ submitHabitBtn.addEventListener('click', () => {
     modal.classList.remove('fade-out');
     modal.classList.add('hidden');
     document.body.classList.remove('modal-open');
+
     habitInput.value = '';
+    modalTitle.textContent = "Add New Habit"; // Reset title
+    isEditing = false;
+    editingHabitId = null;
+
     renderHabitsLists(habits);
   }, 200);
 });
+
 
 
 
@@ -76,6 +98,24 @@ toolbox.querySelector('.delete-btn').addEventListener('click', () => {
   renderHabitsLists(habits);
 
   selectedHabitId = null;
+  toolbox.classList.add('hiddenBox');
+});
+
+
+toolbox.querySelector('.edit-btn').addEventListener('click', () => {
+  if (!selectedHabitId) return;
+
+  const habit = habits.find(h => h.id === selectedHabitId);
+  if (!habit) return;
+
+  isEditing = true;
+  editingHabitId = selectedHabitId;
+
+  modalTitle.textContent = "Edit Habit Name";
+  habitInput.value = habit.name;
+
+  modal.classList.remove('hidden');
+  habitInput.focus();
   toolbox.classList.add('hiddenBox');
 });
 
