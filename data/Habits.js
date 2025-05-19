@@ -30,6 +30,16 @@ export function addHabits(name) {
 
   habits.push(newHabit);
   saveHabits();
+};
+
+
+export function deleteHabit(id) {
+  const index = habits.findIndex(habit => habit.id === id);
+  if (index !== -1) {
+    habits.splice(index, 1); 
+    saveHabits();
+    renderHabitsLists(habits);
+  }
 }
 
 

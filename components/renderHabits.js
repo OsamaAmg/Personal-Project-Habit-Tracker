@@ -7,7 +7,7 @@ export function renderHabitsLists(habits){
   habits.forEach(habit => {
     eachHabitHtml +=
       `
-      <div class="habit-container">
+      <div class="habit-container" data-id="${habit.id}">
           <p class="the-habit">${habit.name}</p>
           <div class="right-group">
             <div class="checkbox-container">

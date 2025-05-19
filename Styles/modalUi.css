@@ -28,7 +28,6 @@ body.modal-open header {
   }
 }
 
-
 .modal {
   position: fixed;
   top: 0;
@@ -56,6 +55,17 @@ body.modal-open header {
 
 .modal.fade-out .modal-content {
   animation: fadeOutZoom 0.2s ease-out forwards;
+}
+
+
+#submit-habit {
+  width: 65px;
+  height: 25px;
+  background-color: #33FF6D;
+  border: none;
+  border-radius: 7px;
+  margin-right: 12px;
+  cursor: pointer;
 }
 
 
