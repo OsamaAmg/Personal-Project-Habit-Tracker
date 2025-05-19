@@ -1,4 +1,4 @@
-import { habits, addHabits, deleteHabit, editHabitName} from "../data/Habits.js";
+import { habits, addHabits, deleteHabit, editHabitName, saveHabits} from "../data/Habits.js";
 import { renderHabitsLists } from "../components/renderHabits.js";
 
 
@@ -46,7 +46,7 @@ submitHabitBtn.addEventListener('click', () => {
     document.body.classList.remove('modal-open');
 
     habitInput.value = '';
-    modalTitle.textContent = "Add New Habit"; // Reset title
+    modalTitle.textContent = "Add New Habit";
     isEditing = false;
     editingHabitId = null;
 
@@ -117,6 +117,24 @@ toolbox.querySelector('.edit-btn').addEventListener('click', () => {
   modal.classList.remove('hidden');
   habitInput.focus();
   toolbox.classList.add('hiddenBox');
+});
+
+
+
+
+document.querySelector('.habits-list').addEventListener('change', (event) => {
+  const checkbox = event.target;
+  if (checkbox.tagName !== 'INPUT' || checkbox.type !== 'checkbox') return;
+
+  const habitContainer = checkbox.closest('.habit-container');
+  const habitId = habitContainer.dataset.id;
+  const habit = habits.find(h => h.id === habitId);
+  if (!habit) return;
+
+  const today = new Date().toISOString().split('T')[0];
+  habit.history[today] = checkbox.checked;
+
+  saveHabits();
 });
 
 

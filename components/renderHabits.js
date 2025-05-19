@@ -1,7 +1,6 @@
-
-
 export function renderHabitsLists(habits){
-  let habitshtml = document.querySelector('.habits-list');
+  const habitshtml = document.querySelector('.habits-list');
+  const today = new Date().toISOString().split('T')[0];
 
   let eachHabitHtml = '';
   habits.forEach(habit => {
@@ -12,7 +11,7 @@ export function renderHabitsLists(habits){
           <div class="right-group">
             <div class="checkbox-container">
               <p>Today</p>
-              <input type="checkbox">
+              <input type="checkbox" ${habit.history[today] ? 'checked' : ''}>
             </div>
             <button class="dots-menu">
               <img src="../icons/DotsMenu.png" alt="Delete">
@@ -23,6 +22,4 @@ export function renderHabitsLists(habits){
   }); 
 
   habitshtml.innerHTML = eachHabitHtml;
-};
-
-
+}
