@@ -182,4 +182,12 @@
     </div>
   </div>
 </body>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const habitId = params.get('habitId');
+  const habitName = params.get('habitName');
+
+  console.log(`Opened Habit Tracker for: "${habitName}" (ID: ${habitId})`);
+</script>
+
 </html>

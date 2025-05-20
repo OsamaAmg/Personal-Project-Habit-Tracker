@@ -50,19 +50,3 @@ export function editHabitName(id, newName) {
   habit.name = newName;
   saveHabits();
 }
-
-
-// Only run this once to modify existing habit's history for testing
-const habitToUpdate = habits.find(h => h.name.toLowerCase() === 'reading');
-
-if (habitToUpdate) {
-  habitToUpdate.history = {
-    '2025-05-15': true,
-    '2025-05-16': true,
-    '2025-05-17': false,
-    '2025-05-18': true,
-    '2025-05-19': true
-  };
-
-  saveHabits();
-}

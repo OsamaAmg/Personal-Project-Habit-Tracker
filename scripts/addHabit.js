@@ -138,6 +138,21 @@ document.querySelector('.habits-list').addEventListener('change', (event) => {
 });
 
 
+toolbox.querySelector('.history-btn').addEventListener('click', () => {
+  if (!selectedHabitId) return;
+
+  const habit = habits.find(h => h.id === selectedHabitId);
+  if (!habit) return;
+
+  // Encode to make it URL-safe
+  const habitNameEncoded = encodeURIComponent(habit.name);
+
+  // Open new page and pass both name and ID
+  window.open(`../pages/HabitHistory.html?habitId=${habit.id}&habitName=${habitNameEncoded}`, '_blank');
+});
+
+
+
 
 
 renderHabitsLists(habits);
