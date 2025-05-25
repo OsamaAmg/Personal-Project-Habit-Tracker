@@ -137,3 +137,72 @@ body {
   
 }
 */
+
+/* Add these styles to your existing HabitHistory.css */
+
+.day-cell {
+  aspect-ratio: 1 / 1;
+  background-color: rgb(219, 255, 219);
+  border-radius: 4px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  border: 1px lightgreen solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.day-cell:hover:not(.empty-day):not(.future-day) {
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.empty-day {
+  aspect-ratio: 1 / 1;
+  cursor: default;
+}
+
+.day-cell .missed {
+  border: 1px solid rgb(255, 123, 123) !important; 
+  background-color: rgb(252, 215, 215) !important;
+}
+
+.day-cell .not-missed {
+  border: 1px solid rgb(87, 143, 87) !important; 
+  background-color: rgb(246, 232, 74) !important;
+}
+
+.day-cell .future-day {
+  background-color: #f0f0f0 !important;
+  border: 1px solid #ddd !important;
+  color: #ccc;
+  cursor: default;
+}
+
+.day-cell .check-mark {
+  position: absolute;
+  top: 2px;
+  right: 3px;
+  font-size: 10px;
+  font-weight: bold;
+  color: rgb(87, 143, 87);
+}
+
+.day-cell .day-number {
+  font-size: 11px;
+  font-weight: 500;
+}
+
+/* Update the streak info styling */
+.habit-history-head > div:nth-child(2),
+.habit-history-head > div:nth-child(3) {
+  margin: 5px 15px;
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+}

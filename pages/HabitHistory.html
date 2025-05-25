@@ -19,175 +19,24 @@
   <div class="container">
     <div class="habit-history">
       <div class="habit-history-head">
-          <h3>Read</h3>
-          <div>Last Streak : 68 Days</div>
-          <div> Current streak : 15 Days</div>
-          <div class="head-box">
-            <button>
-              <img src="../icons/edit.png" alt="">
-            </button>
-            <div class="line"></div>
-            <button>
-              <img src="../icons/delete.png" alt="">
-            </button>
-          </div>
-      </div>
+    <h3></h3>
+    <div></div>
+    <div></div>
+    <div class="head-box">
+      <button>
+        <img src="../icons/edit.png" alt="">
+      </button>
+      <div class="line"></div>
+      <button>
+        <img src="../icons/delete.png" alt="">
+      </button>
+    </div>
+</div>
       <div class="base-line"></div>
-      <div class="calendar">
-        <div class="month-box">
-          <p>May</p>
-          <div class="month-days">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-        </div>
-        <div class="month-box">
-          <p>June</p>
-          <div class="month-days">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-        </div>
-        <div class="month-box">
-          <p>July</p>
-          <div class="month-days">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-        </div>
-        <div class="month-box">
-          <p>August</p>
-          <div class="month-days">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-        </div>
-      </div>
+      <div class="calendar"></div>
     </div>
   </div>
 </body>
-<script>
-  const params = new URLSearchParams(window.location.search);
-  const habitId = params.get('habitId');
-  const habitName = params.get('habitName');
-
-  console.log(`Opened Habit Tracker for: "${habitName}" (ID: ${habitId})`);
-</script>
+<script src="../scripts/habitHistory.js"></script>
 
 </html>
