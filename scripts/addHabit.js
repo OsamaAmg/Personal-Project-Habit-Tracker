@@ -1,4 +1,4 @@
-import { habits, addHabits, deleteHabit, editHabitName, saveHabits} from "../data/Habits.js";
+import { habits, addHabits, deleteHabit, editHabitName, saveHabits, fillMissingDates} from "../data/Habits.js";
 import { renderHabitsLists } from "../components/renderHabits.js";
 
 
@@ -154,5 +154,5 @@ toolbox.querySelector('.history-btn').addEventListener('click', () => {
 
 
 
-
+fillMissingDates();
 renderHabitsLists(habits);

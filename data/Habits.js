@@ -33,6 +33,26 @@ export function addHabits(name) {
 };
 
 
+export function fillMissingDates() {
+  const today = new Date().toISOString().split('T')[0];
+
+  habits.forEach(habit => {
+    const start = new Date(habit.createdAt);
+    const end = new Date(today);
+
+    for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
+      const dateStr = d.toISOString().split('T')[0];
+      if (!(dateStr in habit.history)) {
+        habit.history[dateStr] = false;
+      }
+    }
+  });
+
+  saveHabits();
+};
+
+
+
 export function deleteHabit(id) {
   const index = habits.findIndex(habit => habit.id === id);
   if (index !== -1) {
