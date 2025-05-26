@@ -10,13 +10,20 @@ export function saveHabits(){
   localStorage.setItem('habits', JSON.stringify(habits));
 }
 
+// Helper function to get local date string (avoids timezone issues)
+function getLocalDateString(date = new Date()) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
 
 if(!storedHabits){
   saveHabits();
 }
 
 export function addHabits(name) {
-  const today = new Date().toISOString().split('T')[0];
+  const today = getLocalDateString();
   const newHabit = {
     id: crypto.randomUUID(),
     name,
@@ -32,16 +39,20 @@ export function addHabits(name) {
   saveHabits();
 };
 
-
 export function fillMissingDates() {
-  const today = new Date().toISOString().split('T')[0];
+  const today = getLocalDateString();
 
   habits.forEach(habit => {
-    const start = new Date(habit.createdAt);
-    const end = new Date(today);
+    // Parse the createdAt date properly
+    const [year, month, day] = habit.createdAt.split('-').map(Number);
+    const start = new Date(year, month - 1, day); // month is 0-indexed
+    const end = new Date();
 
+    // Iterate through each day from creation to today
     for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
-      const dateStr = d.toISOString().split('T')[0];
+      const dateStr = getLocalDateString(d);
+      
+      // Only add missing dates as false, don't overwrite existing values
       if (!(dateStr in habit.history)) {
         habit.history[dateStr] = false;
       }
@@ -51,8 +62,6 @@ export function fillMissingDates() {
   saveHabits();
 };
 
-
-
 export function deleteHabit(id) {
   const index = habits.findIndex(habit => habit.id === id);
   if (index !== -1) {
@@ -61,7 +70,6 @@ export function deleteHabit(id) {
     renderHabitsLists(habits);
   }
 };
-
 
 export function editHabitName(id, newName) {
   const habit = habits.find(h => h.id === id);

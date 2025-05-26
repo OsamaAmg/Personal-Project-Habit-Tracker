@@ -150,16 +150,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  transition: all 0.2s ease;
   position: relative;
   font-size: 12px;
   font-weight: 500;
-}
-
-.day-cell:hover:not(.empty-day):not(.future-day) {
-  transform: scale(1.05);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .empty-day {
@@ -167,17 +160,17 @@ body {
   cursor: default;
 }
 
-.day-cell .missed {
+.day-cell.missed {
   border: 1px solid rgb(255, 123, 123) !important; 
   background-color: rgb(252, 215, 215) !important;
 }
 
-.day-cell .not-missed {
+.day-cell.not-missed {
   border: 1px solid rgb(87, 143, 87) !important; 
-  background-color: rgb(246, 232, 74) !important;
+  background-color: rgb(168, 255, 168) !important;
 }
 
-.day-cell .future-day {
+.day-cell.future-day {
   background-color: #f0f0f0 !important;
   border: 1px solid #ddd !important;
   color: #ccc;

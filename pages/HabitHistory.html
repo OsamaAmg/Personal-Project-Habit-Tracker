@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../Styles/Header.css">
   <link rel="stylesheet" href="../Styles/HabitHistory.css">
+  <link rel="stylesheet" href="../Styles/modalUi.css">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <title>Habit History</title>
@@ -12,9 +13,6 @@
 <body>
   <header>
     <h1>Habit Tracker</h1>
-    <button class="add-habit-button">
-      <span>Add Habit</span>
-    </button>
   </header>
   <div class="container">
     <div class="habit-history">
@@ -36,6 +34,28 @@
       <div class="calendar"></div>
     </div>
   </div>
+
+
+
+
+
+  <div id="habit-modal" class="modal hidden">
+    <div class="modal-content">
+        <h2 id="modal-title">Edit Habit Name</h2> <input type="text" id="habit-name-input" placeholder="Enter habit name" /> <div class="modal-buttons">
+            <button id="submit-edit-habit">Save</button> <button id="cancel-edit-habit">Cancel</button> </div>
+    </div>
+</div>
+
+<div id="delete-confirm-modal" class="modal hidden">
+    <div class="modal-content">
+        <h2>Confirm Deletion</h2>
+        <p>Are you sure you want to delete "<strong id="habit-name-to-delete"></strong>"? This action cannot be undone.</p>
+        <div class="modal-buttons">
+            <button id="confirm-delete-btn" class="delete-btn">Delete</button>
+            <button id="cancel-delete-btn">Cancel</button>
+        </div>
+    </div>
+</div>
 </body>
 <script src="../scripts/habitHistory.js"></script>
 
