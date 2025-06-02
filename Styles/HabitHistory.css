@@ -138,7 +138,6 @@ body {
 }
 */
 
-/* Add these styles to your existing HabitHistory.css */
 
 .day-cell {
   aspect-ratio: 1 / 1;
@@ -158,6 +157,7 @@ body {
 .empty-day {
   aspect-ratio: 1 / 1;
   cursor: default;
+  opacity: 0;
 }
 
 .day-cell.missed {
@@ -199,3 +199,4 @@ body {
   color: #666;
   font-weight: 500;
 }
+
